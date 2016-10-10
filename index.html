@@ -1,47 +1,121 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>DamiChou-Cinema</title>
-    <meta name="description" content="Projet scolaire RESTFull et webservice, par Damien CLARAS et Choubert BERTRAND">
-    <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/png" href="images/favicon.png" />
-	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="lib/datatables/css/dataTables.bootstrap.min.css"/>
-	<link rel="stylesheet" href="styles/styles.css"/>
-  </head>
 
-  <body>
-	<header class="header">
-		<p class="header-title">
-			<a id="left-header" href="index.html">
-				DamiChou-Cinema
-			</a>
-		</p>
-  
-		<p class="header-title" >
-			<a id="right-header" href="#" data-toggle="popover" title="Description" data-content="a rajouter">
-				<span class="glyphicon glyphicon-question-sign" ></span> 
-			</a>
-		</p>
-	</header>
-	
-	<div id="mainContent">
-		<button id="monBouton" onclick="dispatcher('actorList')"> Cliquez moi </button>
-	</div>
-	
+<head>
+	<meta charset="utf-8">
+	<title>DamiChou-Cinema</title>
+	<meta name="description" content="Projet scolaire RESTFull et webservice, par Damien CLARAS et Choubert BERTRAND">
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="lib/datatables/css/dataTables.bootstrap.min.css" />
+	<link rel="stylesheet" href="lib/fontawesome/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand" href="#"><img src="images/favicon.png"/> DamiChou-Cinema</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-user"></i> Acteurs <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="clickable" data-action="actorList"><i class="fa fa-list"></i> Liste</a></li>
+							<li><a href="#" class="clickable" data-action="actorSearch"><i class="fa fa-search"></i> Recherche</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-thumb-tack"></i> Catégories <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="clickable" data-action="categoryList"><i class="fa fa-list"></i> Liste</a></li>
+							<li><a href="#" class="clickable" data-action="categorySearch"><i class="fa fa-search"></i> Recherche</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						 <i class="fa fa-bullhorn"></i>	Directeurs <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="clickable" data-action="directorList"><i class="fa fa-list"></i> Liste</a></li>
+							<li><a href="#" class="clickable" data-action="directorSearch"><i class="fa fa-search"></i> Recherche</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-film"></i> Films <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="clickable" data-action="movieList"><i class="fa fa-list"></i> Liste</a></li>
+							<li><a href="#" class="clickable" data-action="movieSearch"><i class="fa fa-search"></i> Recherche</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							 <i class="fa fa-ticket"></i> Personnages <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="clickable" data-action="personageList"><i class="fa fa-list"></i> Liste</a></li>
+							<li><a href="#" class="clickable" data-action="personageSearch"><i class="fa fa-search"></i> Recherche</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<form class="navbar-form">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Rechercher">
+							</div>
+							<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+						</form>
+					</li>
+					<li>
+						<a id="right-header" href="#" data-toggle="popover" data-placement="bottom" title="Description" data-content="a rajouter">
+							<span class="glyphicon glyphicon-question-sign"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="mainContent"></div>
+
 	<footer class="footer">
-		Fait avec ? par Damien CLARAS et Choubert Bertrand;
+		Fait avec <i class="fa fa-keyboard-o"></i> par Damien CLARAS et Choubert Bertrand;
 	</footer>
 
-    <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="lib/datatables/js/dataTables.boostrap.min.js"></script>
+	<script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="lib/datatables/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="scripts/listenner.js"></script>
+	<script type="text/javascript" src="lib/datatables/js/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/listener.js"></script>
 	<script type="text/javascript" src="scripts/request.js"></script>
 	<script type="text/javascript" src="scripts/dispatcher.js"></script>
 	<script type="text/javascript" src="scripts/components/Actor.js"></script>
-	
-  </body>
+	<script type="text/javascript" src="scripts/components/Category.js"></script>
+	<script type="text/javascript" src="scripts/components/Director.js"></script>
+	<script type="text/javascript" src="scripts/components/Movie.js"></script>
+	<script type="text/javascript" src="scripts/components/Personage.js"></script>
+	<script type="text/javascript">
+		declareEvents();
+	</script>
+</body>
+
 </html>

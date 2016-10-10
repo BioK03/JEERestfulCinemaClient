@@ -1,31 +1,32 @@
 body, html {
-	margin: 0 auto;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	display: block;
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow-x: hidden;
 }
 
 a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 a:hover {
-  color: #5aadbb;
+    color: #5aadbb;
 }
 
 .header {
-  background-color: #1f1f1f;
+    background-color: #1f1f1f;
 }
 .header-title {
-  width: 49%;
-  display: inline-block;
-  font-size: 1.5rem;
+    width: 49%;
+    display: inline-block;
+    font-size: 1.5rem;
 }
 
 #left-header {
-   left: 1em;
+    left: 1em;
 }
 
 #right-header {
@@ -34,9 +35,22 @@ a:hover {
 }
 
 .footer {
-  padding: 0.5rem;
-  font-size: 1rem;
-  background-color: #1f1f1f;
-  text-align: center;
-  color: white;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #1f1f1f;
+    text-align: center;
+    color: white;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-brand img {
+    display: inline-block;
+    height: 100%;
 }
