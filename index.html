@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>DamiChou-Cinema</title>
+    <meta name="description" content="Projet scolaire RESTFull et webservice, par Damien CLARAS et Choubert BERTRAND">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="lib/datatables/css/dataTables.bootstrap.min.css"/>
+	<link rel="stylesheet" href="styles/styles.css"/>
+  </head>
+
+  <body>
+	<header class="header">
+		<p class="header-title">
+			<a id="left-header" href="index.html">
+				DamiChou-Cinema
+			</a>
+		</p>
+  
+		<p class="header-title" >
+			<a id="right-header" href="#" data-toggle="popover" title="Description" data-content="a rajouter">
+				<span class="glyphicon glyphicon-question-sign" ></span> 
+			</a>
+		</p>
+	</header>
+	
+	<div id="mainContent">
+		<button id="monBouton" onclick="dispatcher('actorList')"> Cliquez moi </button>
+	</div>
+	
+	<footer class="footer">
+		Fait avec ? par Damien CLARAS et Choubert Bertrand;
+	</footer>
+
+    <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/datatables/js/dataTables.boostrap.min.js"></script>
+	<script type="text/javascript" src="lib/datatables/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="scripts/listenner.js"></script>
+	<script type="text/javascript" src="scripts/request.js"></script>
+	<script type="text/javascript" src="scripts/dispatcher.js"></script>
+	<script type="text/javascript" src="scripts/components/Actor.js"></script>
+	
+  </body>
+</html>
