@@ -1,5 +1,5 @@
 function declareEvents(){
-	console.log("Events refreshed");
+	console.info("Events refreshed");
 	$('[data-toggle="popover"]').popover();
 	$('.datatable').DataTable({
 		"language": {
@@ -26,7 +26,7 @@ function declareEvents(){
 		}
 	});
 
-	$(".clickable[data-action]").unbind('click').click(function(){
-		dispatcher($(this).data("action"));
+	$(".clickable[data-action], .hoverable[data-action]").unbind('click').click(function(){
+		dispatcher($(this).data("action"), $(this).data("args"));
 	});
 }

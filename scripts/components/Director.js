@@ -1,5 +1,5 @@
 var Director = {
-    getList: function(json) {
+    getList: function(data) {
 		var result = ''
 			+'<table id="tab" class="table table-striped table-bordered datatable">'
 			+'	<thead>'
@@ -18,7 +18,7 @@ var Director = {
 			+'	</tfoot>'
 			+'	<tbody>';
 			
-		JSON.parse(json).forEach(function(value) {
+		data.forEach(function(value) {
 			result += ''
 				+'<tr>'
 				+'	<td>'+value.noRea+'</td>'
@@ -29,6 +29,6 @@ var Director = {
 		result += '</tbody> </table>'
 		return result;
 	},
-    test: '[{"noRea":1,"firstnameRea":"GÃ©rard","lastnameRea":"Oury"},{"noRea":2,"firstnameRea":"Claude","lastnameRea":"Chabrol"},{"noRea":3,"firstnameRea":"Luc","lastnameRea":"Besson"},{"noRea":4,"firstnameRea":"Eric","lastnameRea":"Besnard"}]',
+    test: JSON.parse('[{"noRea":1,"firstnameRea":"GÃ©rard","lastnameRea":"Oury"},{"noRea":2,"firstnameRea":"Claude","lastnameRea":"Chabrol"},{"noRea":3,"firstnameRea":"Luc","lastnameRea":"Besson"},{"noRea":4,"firstnameRea":"Eric","lastnameRea":"Besnard"}]'),
 
 };

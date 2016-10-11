@@ -1,5 +1,5 @@
 var Category = {
-    getList: function(json) {
+    getList: function(data) {
 		var result = ''
 			+'<table id="tab" class="table table-striped table-bordered datatable">'
 			+'	<thead>'
@@ -16,7 +16,7 @@ var Category = {
 			+'	</tfoot>'
 			+'	<tbody>';
 			
-		JSON.parse(json).forEach(function(value) {
+		data.forEach(function(value) {
 			result += ''
 				+'<tr>'
 				+'	<td>'+value.catCode+'</td>'
@@ -26,5 +26,5 @@ var Category = {
 		result += '</tbody> </table>'
 		return result;
 	},
-    test: '[{"catCode":"AC","wording":"Action"},{"catCode":"CO","wording":"ComÃ©die"},{"catCode":"PO","wording":"Policier"},{"catCode":"WE","wording":"Western"}]',
+    test: JSON.parse('[{"catCode":"AC","wording":"Action"},{"catCode":"CO","wording":"ComÃ©die"},{"catCode":"PO","wording":"Policier"},{"catCode":"WE","wording":"Western"}]'),
 };

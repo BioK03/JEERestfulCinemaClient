@@ -1,8 +1,11 @@
 function dispatcher(action, args) {
-	console.log("Dispatcher called with action "+action);
+	console.info("Dispatcher appelé avec l'action "+action);
 	switch(action){
 		case "actorList":
 			$('#mainContent').html(Actor.getList(Actor.test));
+			break;
+		case "actorDetails":
+			$("#mainContent").html(Actor.getDetails(args));
 			break;
 		case "categoryList":
 			$('#mainContent').html(Category.getList(Category.test));
@@ -17,7 +20,7 @@ function dispatcher(action, args) {
 			$('#mainContent').html(Personage.getList(Personage.test));
 			break;
 		default:
-			console.error("Called undefined action : "+action);
+			console.error("Action appelée non définie : "+action);
 	}
 	
 	declareEvents();

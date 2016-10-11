@@ -1,5 +1,5 @@
-function request (url) {
-	var baseUrl = "http://";	
+function request(url) {
+	var baseUrl = "http://localhost:8080/cinema/";	
 	var req = new XMLHttpRequest();
 	req.open('GET', baseUrl+url, true);
 	req.onreadystatechange = function (aEvt) {
@@ -11,7 +11,7 @@ function request (url) {
 			}
 			else
 			{
-				console.log("erreur XHR");
+				console.error("Erreur XHR");
 			}
 		}
 	}
