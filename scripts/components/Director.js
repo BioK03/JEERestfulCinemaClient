@@ -20,15 +20,62 @@ var Director = {
 			
 		data.forEach(function(value) {
 			result += ''
-				+'<tr>'
+				+'<tr class="hoverable" data-action="directorDetails" data-args="'+value.noRea+'">'
 				+'	<td>'+value.noRea+'</td>'
                 +'	<td>'+value.firstnameRea+'</td>'
 				+'	<td>'+value.lastnameRea+'</td>'
 				+'</tr>';
 		});
 		result += '</tbody> </table>'
-		return result;
+		printResults("#mainContent", result);
 	},
-    test: JSON.parse('[{"noRea":1,"firstnameRea":"GÃ©rard","lastnameRea":"Oury"},{"noRea":2,"firstnameRea":"Claude","lastnameRea":"Chabrol"},{"noRea":3,"firstnameRea":"Luc","lastnameRea":"Besson"},{"noRea":4,"firstnameRea":"Eric","lastnameRea":"Besnard"}]'),
-
+	getDetails: function(data) {
+		var result = ''
+			+'Numéro du producteur : '+data[0].noRea+'<br/>'
+			+'Prénom : '+data[0].firstnameRea+'<br/>'
+			+'Nom : '+data[0].lastnameRea+'<br/>'
+			+'Films de ce producteur : <br/>'
+			+'<span id="movies"></span>';
+		printResults("#mainContent", result);
+		request("movie/director/"+data[0].noRea, Director.getDetailsMovie);
+	},
+	getDetailsMovie: function(data) {
+		var result = ''
+			+'<table id="tab" class="table table-striped table-bordered datatable">'
+			+'	<thead>'
+			+'		<tr>'
+			+'			<th>Numéro film</th>'
+			+'			<th>Nom</th>'
+            +'			<th>Date de sortie</th>'
+            +'			<th>Durée</th>'
+            +'			<th>Budget</th>'
+            +'			<th>Recettes</th>'
+			+'		</tr>'
+			+'	</thead>'
+			+'	<tfoot>'
+			+'		<tr>'
+			+'			<th>Numéro film</th>'
+			+'			<th>Nom</th>'
+            +'			<th>Date de sortie</th>'
+            +'			<th>Durée</th>'
+            +'			<th>Budget</th>'
+            +'			<th>Recettes</th>'
+			+'		</tr>'
+			+'	</tfoot>'
+			+'	<tbody>';
+			
+		data.forEach(function(value) {
+			result += ''
+				+'<tr class="hoverable" data-action="movieDetails" data-args="'+value.noMovie+'">'
+				+'	<td>'+value.noMovie+'</td>'
+                +'	<td>'+value.title+'</td>'
+				+'	<td>'+value.releaseDate+'</td>'
+                +'	<td>'+value.duration+'</td>'
+                +'	<td>'+value.budget+'</td>'
+                +'	<td>'+value.incomings+'</td>'
+				+'</tr>';
+		});
+		result += '</tbody> </table>'
+		printResults("#movies", result);
+	},
 };

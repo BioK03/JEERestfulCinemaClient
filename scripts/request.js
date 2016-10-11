@@ -1,5 +1,5 @@
-function request(url) {
-	var baseUrl = "http://localhost:8080/cinema/";	
+function request(url, callback) {
+	var baseUrl = "http://localhost:8080/cinema/cinema/";	
 	var req = new XMLHttpRequest();
 	req.open('GET', baseUrl+url, true);
 	req.onreadystatechange = function (aEvt) {
@@ -7,7 +7,7 @@ function request(url) {
 		{
 			if(req.status == 200)
 			{
-				return JSON.parse(req.responseText);
+				callback(JSON.parse(req.responseText));
 			}
 			else
 			{

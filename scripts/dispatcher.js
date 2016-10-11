@@ -1,27 +1,54 @@
 function dispatcher(action, args) {
 	console.info("Dispatcher appelé avec l'action "+action);
 	switch(action){
+		/* 
+		■   ■■■ ■■■ ■■■ ■■■
+		■    ■  ■    ■  ■  
+		■    ■  ■■■  ■  ■■■
+		■    ■    ■  ■    ■
+		■■■ ■■■ ■■■  ■  ■■■ 
+		*/
 		case "actorList":
-			$('#mainContent').html(Actor.getList(Actor.test));
-			break;
-		case "actorDetails":
-			$("#mainContent").html(Actor.getDetails(args));
+			request("actor/list", Actor.getList);
 			break;
 		case "categoryList":
-			$('#mainContent').html(Category.getList(Category.test));
+			request("category/list", Category.getList);
 			break;
 		case "directorList":
-			$('#mainContent').html(Director.getList(Director.test));
+			request("director/list", Director.getList);
 			break;
 		case "movieList":
-			$('#mainContent').html(Movie.getList(Movie.test));
+			request("movie/list", Movie.getList);
 			break;
 		case "personageList":
-			$('#mainContent').html(Personage.getList(Personage.test));
+			request("personage/list", Personage.getList);
 			break;
+
+		/*
+		■■  ■■■ ■■■ ■■■ ■■■ ■   ■■■
+		■ ■ ■    ■  ■ ■  ■  ■   ■
+		■ ■ ■■   ■  ■■■  ■  ■   ■■■
+		■ ■ ■    ■  ■ ■  ■  ■     ■
+		■■  ■■■  ■  ■ ■ ■■■ ■■■ ■■■
+		*/
+		case "actorDetails":
+			request("actor/"+args, Actor.getDetails);
+			break;
+		case "categoryDetails":
+			request("category/"+args, Category.getDetails);
+			break;
+		case "directorDetails":
+			request("director/"+args, Director.getDetails);
+			break;
+		
+		
 		default:
 			console.error("Action appelée non définie : "+action);
 	}
-	
+}
+
+function printResults(container, data){
+	console.info("Content printed");
+	$(container).html(data);
 	declareEvents();
 }
