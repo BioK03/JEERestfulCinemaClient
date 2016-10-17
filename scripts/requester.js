@@ -11,9 +11,24 @@ function request(url, callback) {
 			}
 			else
 			{
-				console.error("Erreur XHR");
+				console.error("Erreur XHR : "+req.status+" "+req.responseText);
 			}
 		}
 	}
 	req.send(null);
+}
+
+function postRequest(url, args) {
+	var baseUrl = "http://localhost:8080/cinema/cinema/";
+	
+	jQuery.ajax({
+		headers: { 
+			'Content-Type': 'application/x-www-form-urlencoded' 
+		},
+		'type': 'POST',
+		'url': baseUrl+url,
+		'data': args
+    });
+
+
 }

@@ -58,7 +58,47 @@ function dispatcher(action, args) {
 		 	var value = $("#searchValue").val();
 		 	request("search/"+value, Global.getSearchResults);
 		 	break;
+
+		/*
+	 	■■■ ■■  ■■ 
+		■ ■ ■ ■ ■ ■
+		■■■ ■ ■ ■ ■
+		■ ■ ■ ■ ■ ■
+		■ ■ ■■  ■■
+		*/
+		case "categoryAdd":
+			Category.getAddForm();
+			break;
+		case "categoryAddSumbit":
+			postRequest("category/add/", formToPostString());
+			break;
 		
+		/*
+		■■■ ■■  ■■■ ■■■
+		■   ■ ■  ■   ■
+		■■  ■ ■  ■   ■
+		■   ■ ■  ■   ■
+		■■■ ■■  ■■■  ■ 
+		*/
+		case "categoryEdit":
+			request("category/"+args, Category.getEditForm);
+			break;
+		case "categoryEditSumbit":
+			postRequest("category/edit/", formToPostString());
+			break;
+
+		/*
+		■■  ■■■ ■   ■■■ ■■■ ■■■
+		■ ■ ■   ■   ■    ■  ■
+		■ ■ ■■  ■   ■■   ■  ■■
+		■ ■ ■   ■   ■    ■  ■
+		■■  ■■■ ■■■ ■■■  ■  ■■■
+		*/
+		case "categoryDelete":
+			request("category/delete/"+args);
+			break;
+
+
 		
 		default:
 			console.error("Action appelée non définie : "+action);

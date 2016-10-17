@@ -30,3 +30,11 @@ function declareEvents(){
 		dispatcher($(this).data("action"), $(this).data("args"));
 	});
 }
+
+function formToPostString() {
+	var result = "";
+	$(".form input[name]").each(function(index, value){
+		result+=((index == 0)?'':'&')+$(this).attr("name")+'='+$(this).val();
+	});
+	return result;
+}
