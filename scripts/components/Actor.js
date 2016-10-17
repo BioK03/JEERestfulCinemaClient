@@ -1,22 +1,22 @@
 var Actor = {
 	getList: function(data) {
-		var result = ''
-			+'<table id="tab" class="table table-striped table-bordered datatable">'
-			+'	<thead>'
-			+'		<tr>'
-			+'			<th>Numéro acteur</th>'
-			+'			<th>Nom</th>'
-			+'			<th>Prenom</th>'
-			+'		</tr>'
-			+'	</thead>'
-			+'	<tfoot>'
-			+'		<tr>'
-			+'			<th>Numéro acteur</th>'
-			+'			<th>Nom</th>'
-			+'			<th>Prenom</th>'
-			+'		</tr>'
-			+'	</tfoot>'
-			+'	<tbody>';
+		var result = `
+			<table id="tab" class="table table-striped table-bordered datatable">
+				<thead>
+					<tr>
+						<th>Numéro acteur</th>
+						<th>Nom</th>
+						<th>Prenom</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Numéro acteur</th>
+						<th>Nom</th>
+						<th>Prenom</th>
+					</tr>
+				</tfoot>
+				<tbody>`;
 			
 		data.forEach(function(value) {
 			result += ''
@@ -26,7 +26,7 @@ var Actor = {
 				+'	<td>'+value.firstnameAct+'</td>'
 				+'</tr>';
 		});
-		result += '</tbody> </table>'
+		result += '</tbody> </table>';
 		printResults("#mainContent", result);
 	},
 	getDetails: function(data) {
@@ -43,29 +43,29 @@ var Actor = {
 		request("movie/actor/"+data[0].noAct, Actor.getDetailsMovie);
 	},
 	getDetailsMovie: function(data) {
-		var result = ''
-			+'<table id="tab" class="table table-striped table-bordered datatable">'
-			+'	<thead>'
-			+'		<tr>'
-			+'			<th>Numéro film</th>'
-			+'			<th>Nom</th>'
-            +'			<th>Date de sortie</th>'
-            +'			<th>Durée</th>'
-            +'			<th>Budget</th>'
-            +'			<th>Recettes</th>'
-			+'		</tr>'
-			+'	</thead>'
-			+'	<tfoot>'
-			+'		<tr>'
-			+'			<th>Numéro film</th>'
-			+'			<th>Nom</th>'
-            +'			<th>Date de sortie</th>'
-            +'			<th>Durée</th>'
-            +'			<th>Budget</th>'
-            +'			<th>Recettes</th>'
-			+'		</tr>'
-			+'	</tfoot>'
-			+'	<tbody>';
+		var result = `
+			<table id="tab" class="table table-striped table-bordered datatable">
+				<thead>
+					<tr>
+						<th>Numéro film</th>
+						<th>Nom</th>
+            			<th>Date de sortie</th>
+            			<th>Durée</th>
+            			<th>Budget</th>
+            			<th>Recettes</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Numéro film</th>
+						<th>Nom</th>
+            			<th>Date de sortie</th>
+            			<th>Durée</th>
+            			<th>Budget</th>
+            			<th>Recettes</th>
+					</tr>
+				</tfoot>
+				<tbody>`;
 			
 		data.forEach(function(value) {
 			result += ''
@@ -78,7 +78,7 @@ var Actor = {
                 +'	<td>'+value.incomings+'</td>'
 				+'</tr>';
 		});
-		result += '</tbody> </table>'
+		result += '</tbody> </table>';
 		printResults("#movies", result);
 	}
 };

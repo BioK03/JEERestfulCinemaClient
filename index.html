@@ -24,12 +24,17 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-				<a class="navbar-brand" href="#"><img src="images/favicon.png" /> DamiChou-Cinema</a>
+				<a class="navbar-brand clickable" href="#" data-action="index"><img src="images/favicon.png" /> DamiChou-Cinema</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="dropdown">
+					<li><a href="#" class="clickable" data-action="actorList"><i class="fa fa-user"></i> Acteurs</a></li>
+					<li><a href="#" class="clickable" data-action="categoryList"><i class="fa fa-thumb-tack"></i> Catégories</a></li>
+					<li><a href="#" class="clickable" data-action="directorList"><i class="fa fa-bullhorn"></i> Réalisateurs</a></li>
+					<li><a href="#" class="clickable" data-action="movieList"><i class="fa fa-film"></i> Films</a></li>
+					<li><a href="#" class="clickable" data-action="personageList"><i class="fa fa-ticket"></i> Personnages</a></li>
+					<!--<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							<i class="fa fa-user"></i> Acteurs <span class="caret"></span>
 						</a>
@@ -49,7 +54,7 @@
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<i class="fa fa-bullhorn"></i> Directeurs <span class="caret"></span>
+							<i class="fa fa-bullhorn"></i> Réalisateurs <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="#" class="clickable" data-action="directorList"><i class="fa fa-list"></i> Liste</a></li>
@@ -73,16 +78,16 @@
 							<li><a href="#" class="clickable" data-action="personageList"><i class="fa fa-list"></i> Liste</a></li>
 							<li><a href="#" class="clickable" data-action="personageSearch"><i class="fa fa-search"></i> Recherche</a></li>
 						</ul>
-					</li>
+					</li>-->
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					<li>
 						<form class="navbar-form">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Rechercher">
+								<input id="searchValue" type="text" class="form-control" placeholder="Recherche globale">
 							</div>
-							<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+							<button class="btn btn-default clickable" data-action="search"><i class="fa fa-search"></i></button>
 						</form>
 					</li>
 					<li>
@@ -105,9 +110,13 @@
 	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="lib/datatables/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="lib/datatables/js/dataTables.bootstrap.min.js"></script>
+
 	<script type="text/javascript" src="scripts/listener.js"></script>
-	<script type="text/javascript" src="scripts/request.js"></script>
+	<script type="text/javascript" src="scripts/requester.js"></script>
 	<script type="text/javascript" src="scripts/dispatcher.js"></script>
+
+	<script type="text/javascript" src="scripts/components/Global.js"></script>
+	
 	<script type="text/javascript" src="scripts/components/Actor.js"></script>
 	<script type="text/javascript" src="scripts/components/Category.js"></script>
 	<script type="text/javascript" src="scripts/components/Director.js"></script>

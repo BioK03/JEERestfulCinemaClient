@@ -1,20 +1,20 @@
 var Category = {
     getList: function(data) {
-		var result = ''
-			+'<table id="tab" class="table table-striped table-bordered datatable">'
-			+'	<thead>'
-			+'		<tr>'
-			+'			<th>Code de catégorie</th>'
-			+'			<th>Libellé</th>'
-			+'		</tr>'
-			+'	</thead>'
-			+'	<tfoot>'
-			+'		<tr>'
-			+'			<th>Code de catégorie</th>'
-			+'			<th>Libellé</th>'
-			+'		</tr>'
-			+'	</tfoot>'
-			+'	<tbody>';
+		var result = `
+			<table id="tab" class="table table-striped table-bordered datatable">
+				<thead>
+					<tr>
+						<th>Code de catégorie</th>
+						<th>Libellé</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Code de catégorie</th>
+						<th>Libellé</th>
+					</tr>
+				</tfoot>
+				<tbody>`;
 			
 		data.forEach(function(value) {
 			result += ''
@@ -36,29 +36,29 @@ var Category = {
 		request("movie/category/"+data[0].catCode, Category.getDetailsMovie);
 	},
 	getDetailsMovie: function(data) {
-		var result = ''
-			+'<table id="tab" class="table table-striped table-bordered datatable">'
-			+'	<thead>'
-			+'		<tr>'
-			+'			<th>Numéro film</th>'
-			+'			<th>Nom</th>'
-            +'			<th>Date de sortie</th>'
-            +'			<th>Durée</th>'
-            +'			<th>Budget</th>'
-            +'			<th>Recettes</th>'
-			+'		</tr>'
-			+'	</thead>'
-			+'	<tfoot>'
-			+'		<tr>'
-			+'			<th>Numéro film</th>'
-			+'			<th>Nom</th>'
-            +'			<th>Date de sortie</th>'
-            +'			<th>Durée</th>'
-            +'			<th>Budget</th>'
-            +'			<th>Recettes</th>'
-			+'		</tr>'
-			+'	</tfoot>'
-			+'	<tbody>';
+		var result = `
+			<table id="tab" class="table table-striped table-bordered datatable">
+				<thead>
+					<tr>
+						<th>Numéro film</th>
+						<th>Nom</th>
+            			<th>Date de sortie</th>
+            			<th>Durée</th>
+            			<th>Budget</th>
+            			<th>Recettes</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Numéro film</th>
+						<th>Nom</th>
+            			<th>Date de sortie</th>
+            			<th>Durée</th>
+            			<th>Budget</th>
+            			<th>Recettes</th>
+					</tr>
+				</tfoot>
+				<tbody>`;
 			
 		data.forEach(function(value) {
 			result += ''

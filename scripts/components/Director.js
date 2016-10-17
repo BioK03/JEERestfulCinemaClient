@@ -1,22 +1,22 @@
 var Director = {
     getList: function(data) {
-		var result = ''
-			+'<table id="tab" class="table table-striped table-bordered datatable">'
-			+'	<thead>'
-			+'		<tr>'
-			+'			<th>Numéro réalisateur</th>'
-			+'			<th>Prénom</th>'
-            +'			<th>Nom</th>'
-			+'		</tr>'
-			+'	</thead>'
-			+'	<tfoot>'
-			+'		<tr>'
-			+'			<th>Numéro réalisateur</th>'
-			+'			<th>Prénom</th>'
-            +'			<th>Nom</th>'
-			+'		</tr>'
-			+'	</tfoot>'
-			+'	<tbody>';
+		var result = `
+			<table id="tab" class="table table-striped table-bordered datatable">
+				<thead>
+					<tr>
+						<th>Numéro réalisateur</th>
+						<th>Prénom</th>
+            			<th>Nom</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Numéro réalisateur</th>
+						<th>Prénom</th>
+            			<th>Nom</th>
+					</tr>
+				</tfoot>
+				<tbody>`;
 			
 		data.forEach(function(value) {
 			result += ''
@@ -26,43 +26,43 @@ var Director = {
 				+'	<td>'+value.lastnameRea+'</td>'
 				+'</tr>';
 		});
-		result += '</tbody> </table>'
+		result += '</tbody> </table>';
 		printResults("#mainContent", result);
 	},
 	getDetails: function(data) {
 		var result = ''
-			+'Numéro du producteur : '+data[0].noRea+'<br/>'
+			+'Numéro du réalisateur : '+data[0].noRea+'<br/>'
 			+'Prénom : '+data[0].firstnameRea+'<br/>'
 			+'Nom : '+data[0].lastnameRea+'<br/>'
-			+'Films de ce producteur : <br/>'
+			+'Films de ce réalisateur : <br/>'
 			+'<span id="movies"></span>';
 		printResults("#mainContent", result);
 		request("movie/director/"+data[0].noRea, Director.getDetailsMovie);
 	},
 	getDetailsMovie: function(data) {
-		var result = ''
-			+'<table id="tab" class="table table-striped table-bordered datatable">'
-			+'	<thead>'
-			+'		<tr>'
-			+'			<th>Numéro film</th>'
-			+'			<th>Nom</th>'
-            +'			<th>Date de sortie</th>'
-            +'			<th>Durée</th>'
-            +'			<th>Budget</th>'
-            +'			<th>Recettes</th>'
-			+'		</tr>'
-			+'	</thead>'
-			+'	<tfoot>'
-			+'		<tr>'
-			+'			<th>Numéro film</th>'
-			+'			<th>Nom</th>'
-            +'			<th>Date de sortie</th>'
-            +'			<th>Durée</th>'
-            +'			<th>Budget</th>'
-            +'			<th>Recettes</th>'
-			+'		</tr>'
-			+'	</tfoot>'
-			+'	<tbody>';
+		var result = `
+			<table id="tab" class="table table-striped table-bordered datatable">
+				<thead>
+					<tr>
+						<th>Numéro film</th>
+						<th>Nom</th>
+            			<th>Date de sortie</th>
+            			<th>Durée</th>
+            			<th>Budget</th>
+            			<th>Recettes</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Numéro film</th>
+						<th>Nom</th>
+            			<th>Date de sortie</th>
+            			<th>Durée</th>
+            			<th>Budget</th>
+            			<th>Recettes</th>
+					</tr>
+				</tfoot>
+				<tbody>`;
 			
 		data.forEach(function(value) {
 			result += ''
@@ -75,7 +75,7 @@ var Director = {
                 +'	<td>'+value.incomings+'</td>'
 				+'</tr>';
 		});
-		result += '</tbody> </table>'
+		result += '</tbody> </table>';
 		printResults("#movies", result);
 	},
 };

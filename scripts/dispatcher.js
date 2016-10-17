@@ -1,6 +1,9 @@
 function dispatcher(action, args) {
 	console.info("Dispatcher appelé avec l'action "+action);
 	switch(action){
+		case "index":
+			$("#mainContent").html("");
+			break;
 		/* 
 		■   ■■■ ■■■ ■■■ ■■■
 		■    ■  ■    ■  ■  
@@ -40,6 +43,21 @@ function dispatcher(action, args) {
 		case "directorDetails":
 			request("director/"+args, Director.getDetails);
 			break;
+		case "movieDetails":
+			request("movie/"+args, Movie.getDetails);
+			break;
+
+		/*
+	    ■■■ ■■■ ■■■ ■■■ ■■■ ■ ■
+	    ■   ■   ■ ■ ■ ■ ■   ■ ■
+	    ■■■ ■■  ■■■ ■■■ ■   ■■■
+	      ■ ■   ■ ■ ■■  ■   ■ ■
+	    ■■■ ■■■ ■ ■ ■ ■ ■■■ ■ ■
+	 	*/
+		 case 'search':
+		 	var value = $("#searchValue").val();
+		 	request("search/"+value, Global.getSearchResults);
+		 	break;
 		
 		
 		default:
