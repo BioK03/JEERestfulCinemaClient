@@ -52,8 +52,9 @@ var Movie = {
 			+'<span class="clickable link" data-action="directorDetails" data-args="'+data[0].director.noRea+'"><span class="details">Réalisateur</span> : '+data[0].director.firstnameRea+' '+data[0].director.lastnameRea+'</span><br/>'
 			+'<span class="clickable link" data-action="categoryDetails" data-args="'+data[0].category.catCode+'"><span class="details">Catégorie</span> : '+data[0].category.wording+'('+data[0].category.catCode+')'+'</span><br/><br/>'
 			+'<br/>'+((data[0].picture)?'<img src="'+data[0].picture+'"/><br/>':'')
-			+'<a href="'+data[0].allocineLink+'">Lien AlloCiné</>'
+			+(data[0].allocineLink? '<a href="'+data[0].allocineLink+'">Lien AlloCiné</a>' :'')
 			+'<span class="details">Acteurs</span> :';
+			+'<span id="actors"></span>';
 
 		printResults("#mainContent", result);
 		request("actor/movie/"+data[0].noMovie, Movie.getDetailsActor);
@@ -92,15 +93,15 @@ var Movie = {
 		var result = `<h3>Ajout d'un film</h3>
 			<div class="form">
 				<label for="title">Titre du film</label><br/>
-				<input id="title" type="text" name="title" placeholder="Titre du film" /><br/>
+				<input id="title" type="text" name="title" required placeholder="Titre du film" /><br/>
 				<label for="duration">Durée (en minutes)</label><br/>
-				<input id="duration" type="number" name="duration" min="0" placeholder="Durée (en minutes)" /><br/>
+				<input id="duration" type="number" name="duration" min="0" required placeholder="Durée (en minutes)" /><br/>
 				<label for="budget">Budget</label><br/>
-				<input id="budget" type="number" name="budget" min="0" step="10000" placeholder="Budget" /><br/>
+				<input id="budget" type="number" name="budget" min="0" step="10000" required placeholder="Budget" /><br/>
 				<label for="incomings">Recettes (en euro)</label><br/>
-				<input id="incomings" type="number" name="incomings" min="0" step="10000" placeholder="Recettes (en euro)" /><br/>
+				<input id="incomings" type="number" name="incomings" min="0" step="10000" required placeholder="Recettes (en euro)" /><br/>
 				<label for="releaseDate">Date de sortie (AAAA-MM-JJ)</label><br/>
-				<input id="releaseDate" class="datepicker" type="text" name="releaseDate" placeholder="Date de sortie (AAAA-MM-JJ)" /><br/>
+				<input id="releaseDate" class="datepicker" type="text" name="releaseDate" required placeholder="Date de sortie (AAAA-MM-JJ)" /><br/>
 				<label for="category">Categorie</label><br/>
 				<select id="category" name="category"> </select><br/>
 				<label for="director">Réalisateur</label><br/>
@@ -138,15 +139,15 @@ var Movie = {
 			+'<div class="form">'
 				+'<input type="hidden" name="noMovie" value="'+data[0].noMovie+'"/>'
 				+'<label for="title">Titre du film</label><br/>'
-				+'<input id="title" type="text" name="title" value="'+data[0].title+'" placeholder="Titre du film" /><br/>'
+				+'<input id="title" type="text" name="title" value="'+data[0].title+'" required placeholder="Titre du film" /><br/>'
 				+'<label for="duration">Durée (en minutes)</label><br/>'
-				+'<input id="duration" type="text" name="duration" value="'+data[0].duration+'" placeholder="Durée (en minutes)" /><br/>'
+				+'<input id="duration" type="text" name="duration" value="'+data[0].duration+'" required placeholder="Durée (en minutes)" /><br/>'
 				+'<label for="budget">Budget</label><br/>'
-				+'<input id="budget" type="number" name="budget" value="'+data[0].budget+'" min="0" step="10000" placeholder="Budget" /><br/>'
+				+'<input id="budget" type="number" name="budget" value="'+data[0].budget+'" min="0" step="10000" required placeholder="Budget" /><br/>'
 				+'<label for="incomings">Recettes (en euro)</label><br/>'
-				+'<input id="incomings" type="number" name="incomings" value="'+data[0].incomings+'" min="0" step="10000" placeholder="Recettes (en euro)" /><br/>'
+				+'<input id="incomings" type="number" name="incomings" value="'+data[0].incomings+'" min="0" step="10000" required placeholder="Recettes (en euro)" /><br/>'
 				+'<label for="releaseDate">Date de sortie (AAAA-MM-JJ)</label><br/>'
-				+'<input id="releaseDate" class="datepicker" type="text" name="releaseDate" value="'+data[0].releaseDate+'" placeholder="Date de sortie (AAAA-MM-JJ)" /><br/>'
+				+'<input id="releaseDate" class="datepicker" type="text" name="releaseDate" value="'+data[0].releaseDate+'" required placeholder="Date de sortie (AAAA-MM-JJ)" /><br/>'
 				+'<label for="picture">Image</label><br/>'
 				+'<input id="picture" class="inputPicture" type="text" name="picture" value="'+data[0].picture+'" placeholder="Image" /><br/>'
 				+'<label for="category">Categorie</label><br/>'

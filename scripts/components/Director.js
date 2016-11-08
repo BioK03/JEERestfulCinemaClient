@@ -86,9 +86,9 @@ var Director = {
 		var result = `<h3>Ajout d'un réalisateur</h3>
 			<div class="form">
 				<label for="firstnameRea">Prénom du réalisateur</label><br/>
-				<input id="firstnameRea" type="text" name="firstnameRea" placeholder="Prénom du réalisateur" /><br/>
+				<input id="firstnameRea" type="text" name="firstnameRea" required placeholder="Prénom du réalisateur" /><br/>
 				<label for="lastnameRea">Nom du réalisateur</label><br/>
-				<input id="lastnameRea" type="text" name="lastnameRea" placeholder="Nom du réalisateur" /><br/>
+				<input id="lastnameRea" type="text" name="lastnameRea" required placeholder="Nom du réalisateur" /><br/>
 				<label for="picture">Image</label><br/>
 				<input id="picture" class="inputPicture" type="text" name="picture" placeholder="Image" /><br/>
 				<img class="picturepreview" src=""><br/>
@@ -102,9 +102,9 @@ var Director = {
 			+'<div class="form">'
 				+'<input type="hidden" name="noRea" value="'+data[0].noRea+'"/>'
 				+'<label for="firstnameRea">Prénom du réalisateur</label><br/>'
-				+'<input id="firstnameRea" type="text" name="firstnameRea" value="'+data[0].firstnameRea+'" placeholder="Prénom du réalisateur" /><br/>'
+				+'<input id="firstnameRea" type="text" name="firstnameRea" value="'+data[0].firstnameRea+'" required placeholder="Prénom du réalisateur" /><br/>'
 				+'<label for="lastnameRea">Nom du réalisateur</label><br/>'
-				+'<input id="lastnameRea" type="text" name="lastnameRea" value="'+data[0].lastnameRea+'" placeholder="Nom du réalisateur" /><br/>'
+				+'<input id="lastnameRea" type="text" name="lastnameRea" value="'+data[0].lastnameRea+'" required placeholder="Nom du réalisateur" /><br/>'
 				+'<label for="picture">Image</label><br/>'
 				+'<input id="picture" class="inputPicture" type="text" name="picture" value="'+data[0].picture+'" placeholder="Image" /><br/>'
 				+'<img class="picturepreview" src="'+data[0].picture+'"><br/>'

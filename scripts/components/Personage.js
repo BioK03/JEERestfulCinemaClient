@@ -46,7 +46,7 @@ var Personage = {
 				<label for="movie">Nom du film</label><br/>
 				<select id="movie" name="movie"> </select><br/>
 				<label for="persName">Nom du personnage</label><br/>
-				<input id="persName" type="text" name="persName" placeholder="Nom du personnage" /><br/>
+				<input id="persName" type="text" name="persName" required placeholder="Nom du personnage" /><br/>
 				<button class="clickable" data-action="personageAddSumbit">Valider</button>
 			</div>
 			`;
@@ -80,7 +80,7 @@ var Personage = {
 				+'<label for="movie">Nom du film</label><br/>'
 				+'<input id="movie" type="text" name="movieTitle" value="'+data[0].movie.title+'" disabled/><br/>'
 				+'<label for="persName">Nom du personnage</label><br/>'
-				+'<input id="persName" type="text" name="persName" value="'+data[0].persName+'" placeholder="Nom du personnage"/><br/>'
+				+'<input id="persName" type="text" name="persName" value="'+data[0].persName+'" required placeholder="Nom du personnage"/><br/>'
 				+'<button class="clickable" data-action="personageEditSumbit" data-args="'+data[0].movie.noMovie+'/'+data[0].actor.noAct+'">Valider</button>'
 			+'</div>';
 		printResults("#mainContent", result);

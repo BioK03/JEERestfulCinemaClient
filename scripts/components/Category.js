@@ -82,9 +82,9 @@ var Category = {
 		var result = `<h3>Ajout d'une catégorie</h3>
 			<div class="form">
 				<label for="catCode">Code de la catégorie</label><br/>
-				<input id="catCode" type="text" name="catCode" placeholder="Code de la catégorie"maxlength="2"/><br/>
+				<input id="catCode" type="text" name="catCode" required placeholder="Code de la catégorie"maxlength="2"/><br/>
 				<label for="wording">Libellé</label><br/>
-				<input id="wording" type="text" name="wording" placeholder="Libellé" maxlength="20"/><br/>
+				<input id="wording" type="text" name="wording" required placeholder="Libellé" maxlength="20"/><br/>
 				<label for="picture">Image</label><br/>
 				<input id="picture" class="inputPicture" type="text" name="picture" placeholder="Image" /><br/>
 				<img class="picturepreview" src=""><br/>

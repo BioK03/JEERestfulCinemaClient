@@ -87,11 +87,11 @@ var Actor = {
 		var result = `<h3>Ajout d'un acteur</h3>
 			<div class="form">
 				<label for="firstnameAct">Prénom de l\'acteur</label><br/>
-				<input id="firstnameAct" type="text" name="firstnameAct" placeholder="Prénom de l\'acteur" /><br/>
+				<input id="firstnameAct" type="text" name="firstnameAct" required placeholder="Prénom de l\'acteur" /><br/>
 				<label for="lastnameAct">Nom de l\'acteur</label><br/>
-				<input id="lastnameAct" type="text" name="lastnameAct" placeholder="Nom de l\'acteur" /><br/>
+				<input id="lastnameAct" type="text" name="lastnameAct" required placeholder="Nom de l\'acteur" /><br/>
 				<label for="birthdate">Date de naissance (AAAA-MM-JJ)</label><br/>
-				<input id="birthdate" class="datepicker" type="text" name="birthdate" placeholder="Date de naissance (AAAA-MM-JJ)" /><br/>
+				<input id="birthdate" class="datepicker" type="text" name="birthdate" required placeholder="Date de naissance (AAAA-MM-JJ)" /><br/>
 				<label for="deathdate">Date de décès (AAAA-MM-JJ)</label><br/>
 				<input id="deathdate" class="datepicker" type="text" name="deathdate" placeholder="Date de décès (AAAA-MM-JJ)" /><br/>
 				<label for="picture">Image</label><br/>
@@ -107,11 +107,11 @@ var Actor = {
 			+'<div class="form">'
 				+'<input type="hidden" name="noAct" value="'+data[0].noAct+'"/><br/>'
 				+'<label for="firstnameAct">Prénom de l\'acteur</label><br/>'
-				+'<input id="firstnameAct" type="text" name="firstnameAct" value="'+data[0].firstnameAct+'" placeholder="Prénom de l\'acteur" /><br/>'
+				+'<input id="firstnameAct" type="text" name="firstnameAct" value="'+data[0].firstnameAct+'" required placeholder="Prénom de l\'acteur" /><br/>'
 				+'<label for="lastnameAct">Nom de l\'acteur</label><br/>'
-				+'<input id="lastnameAct" type="text" name="lastnameAct" value="'+data[0].lastnameAct+'" placeholder="Nom de l\'acteur" /><br/>'
+				+'<input id="lastnameAct" type="text" name="lastnameAct" value="'+data[0].lastnameAct+'" required placeholder="Nom de l\'acteur" /><br/>'
 				+'<label for="birthdate">Date de naissance (AAAA-MM-JJ)</label><br/>'
-				+'<input id="birthdate" class="datepicker" type="text" name="birthdate" value="'+data[0].birthdate+'" placeholder="Date de naissance (AAAA-MM-JJ)" /><br/>'
+				+'<input id="birthdate" class="datepicker" type="text" name="birthdate" value="'+data[0].birthdate+'" required placeholder="Date de naissance (AAAA-MM-JJ)" /><br/>'
 				+'<label for="deathdate">Date de décès (AAAA-MM-JJ)</label><br/>'
 				+'<input id="deathdate" class="datepicker" type="text" name="deathdate" value="'+(data[0].deathdate?data[0].deathdate:'')+'" placeholder="Date de décès (AAAA-MM-JJ)" /><br/>'
 				+'<label for="picture">Image</label><br/>'

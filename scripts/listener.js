@@ -39,7 +39,7 @@ function declareEvents(){
 
 function formToPostString() {
 	var result = "";
-	$(".form input[name]").each(function(index, value){
+	$(".form input[name] , .form select[name] ").each(function(index, value){
 		result+=((index == 0)?'':'&')+$(this).attr("name")+'='+$(this).val();
 	});
 	return result;
