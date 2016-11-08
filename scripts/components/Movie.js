@@ -1,6 +1,7 @@
 var Movie = {
     getList: function(data) {
 		var result = `
+			<button class="clickable btn" data-action="movieAdd"><i class="fa fa-plus"></i> Ajouter un film</button>
 			<table id="tab" class="table table-striped table-bordered datatable">
 				<thead>
 					<tr>
@@ -8,8 +9,8 @@ var Movie = {
 						<th>Nom</th>
             			<th>Date de sortie</th>
             			<th>Durée</th>
-            			<th>Budget</th>
-            			<th>Recettes</th>
+            			<th>Budget €</th>
+            			<th>Recettes €</th>
 					</tr>
 				</thead>
 				<tfoot>
@@ -18,8 +19,8 @@ var Movie = {
 						<th>Nom</th>
             			<th>Date de sortie</th>
             			<th>Durée</th>
-            			<th>Budget</th>
-            			<th>Recettes</th>
+            			<th>Budget €</th>
+            			<th>Recettes €</th>
 					</tr>
 				</tfoot>
 				<tbody>`;
@@ -40,16 +41,17 @@ var Movie = {
 		
 	},
 	getDetails: function(data) {
-		var result = ''
-			+'Numéro du film : '+data[0].noMovie+'<br/>'
-			+'Nom : '+data[0].title+'<br/>'
-			+'Durée : '+data[0].duration+'<br/>'
-			+'Recettes : '+data[0].incomings+'<br/>'
-			+'Date de sortie : '+data[0].releaseDate+'<br/>'
-			+'Budget : '+data[0].budget+' €<br/>'
-			+'<span class="clickable" data-action="directorDetails" data-args="'+data[0].director.noRea+'">Réalisateur : '+data[0].director.firstnameRea+' '+data[0].director.lastnameRea+'</span><br/>'
-			+'<span class="clickable" data-action="categoryDetails" data-args="'+data[0].category.catCode+'">Catégorie : '+data[0].category.wording+'('+data[0].category.catCode+')'+'</span><br/><br/>'
-			+'Acteurs :'
+		var result = '<button class="clickable btn" data-action="movieEdit" data-args="'+data[0].noMovie+'"><i class="fa fa-edit"></i> Editer ce film</button>'
+			+'<button class="clickable btn" data-action="movieDelete" data-args="'+data[0].noMovie+'"><i class="fa fa-remove"></i> Supprimer ce film</button><br/>'
+			+'<span class="details">Numéro du film</span> : '+data[0].noMovie+'<br/>'
+			+'<span class="details">Nom</span> : '+data[0].title+'<br/>'
+			+'<span class="details">Durée</span> : '+data[0].duration+'<br/>'
+			+'<span class="details">Recettes</span> : '+data[0].incomings+' €<br/>'
+			+'<span class="details">Date de sortie</span> : '+data[0].releaseDate+'<br/>'
+			+'<span class="details">Budget</span> : '+data[0].budget+' €<br/>'
+			+'<span class="clickable link" data-action="directorDetails" data-args="'+data[0].director.noRea+'"><span class="details">Réalisateur</span> : '+data[0].director.firstnameRea+' '+data[0].director.lastnameRea+'</span><br/>'
+			+'<span class="clickable link" data-action="categoryDetails" data-args="'+data[0].category.catCode+'"><span class="details">Catégorie</span> : '+data[0].category.wording+'('+data[0].category.catCode+')'+'</span><br/><br/>'
+			+'<span class="details">Acteurs</span> :'
 			+'<span id="actors"></span>';
 
 		printResults("#mainContent", result);
@@ -84,5 +86,40 @@ var Movie = {
 		});
 		result += '</tbody> </table>';
 		printResults("#actors", result);
+	},
+	getAddForm: function() {
+		var result = `<h3>Ajout d'un film</h3>
+			<div class="form">
+				<label for="title">Titre du film</label><br/>
+				<input id="title" type="text" name="title" placeholder="Titre du film" /><br/>
+				<label for="duration">Durée (en minutes)</label><br/>
+				<input id="duration" type="number" name="duration" min="0" placeholder="Durée (en minutes)" /><br/>
+				<label for="budget">Budget</label><br/>
+				<input id="budget" type="number" name="budget" min="0" step="10000" placeholder="Budget" /><br/>
+				<label for="incomings">Recettes (en euro)</label><br/>
+				<input id="incomings" type="number" name="incomings" min="0" step="10000" placeholder="Recettes (en euro)" /><br/>
+				<label for="releaseDate">Date de sortie (AAAA-MM-JJ)</label><br/>
+				<input id="releaseDate" type="text" name="releaseDate" placeholder="Date de sortie (AAAA-MM-JJ)" /><br/>
+				<button class="clickable" data-action="movieAddSumbit">Valider</button>
+			</div>
+			`;
+		printResults("#mainContent", result);
+	},
+	getEditForm: function(data) {
+		var result = '<h3>Edition d\'un film</h3>'
+			+'<div class="form">'
+				+'<label for="title">Titre du film</label><br/>'
+				+'<input id="title" type="text" name="title" value="'+data[0].title+'" placeholder="Titre du film" /><br/>'
+				+'<label for="duration">Durée (en minutes)</label><br/>'
+				+'<input id="duration" type="text" name="duration" value="'+data[0].duration+'" placeholder="Durée (en minutes)" /><br/>'
+				+'<label for="budget">Budget</label><br/>'
+				+'<input id="budget" type="number" name="budget" value="'+data[0].budget+'" min="0" step="10000" placeholder="Budget" /><br/>'
+				+'<label for="incomings">Recettes (en euro)</label><br/>'
+				+'<input id="incomings" type="number" name="incomings" value="'+data[0].incomings+'" min="0" step="10000" placeholder="Recettes (en euro)" /><br/>'
+				+'<label for="releaseDate">Date de sortie (AAAA-MM-JJ)</label><br/>'
+				+'<input id="releaseDate" type="text" name="releaseDate" value="'+data[0].releaseDate+'" placeholder="Date de sortie (AAAA-MM-JJ)" /><br/>'
+				+'<button class="clickable" data-action="movieEditSumbit" data-args="'+data[0].noMovie+'">Valider</button>'
+			+'</div>';
+		printResults("#mainContent", result);
 	},
 };

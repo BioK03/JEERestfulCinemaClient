@@ -46,6 +46,9 @@ function dispatcher(action, args) {
 		case "movieDetails":
 			request("movie/"+args, Movie.getDetails);
 			break;
+		case "personageDetails":
+			request("personage/"+args, Personage.getDetails);
+			break;
 
 		/*
 	    ■■■ ■■■ ■■■ ■■■ ■■■ ■ ■
@@ -71,6 +74,45 @@ function dispatcher(action, args) {
 			break;
 		case "categoryAddSumbit":
 			postRequest("category/add/", formToPostString());
+			setTimeout(function(){
+				dispatcher("categoryList");
+			}, 500);
+			break;
+		case "personageAdd":
+			Personage.getAddForm();
+			break;
+		case "personageAddSumbit":
+			postRequest("personage/add/", formToPostString());
+			setTimeout(function(){
+				dispatcher("personageList");
+			}, 500);
+			break;
+		case "movieAdd":
+			Movie.getAddForm();
+			break;
+		case "movieAddSumbit":
+			postRequest("movie/add/", formToPostString());
+			setTimeout(function(){
+				dispatcher("movieList");
+			}, 500);
+			break;
+		case "directorAdd":
+			Director.getAddForm();
+			break;
+		case "directorAddSumbit":
+			postRequest("director/add/", formToPostString());
+			setTimeout(function(){
+				dispatcher("directorList");
+			}, 500);
+			break;
+		case "actorAdd":
+			Actor.getAddForm();
+			break;
+		case "actorAddSumbit":
+			postRequest("actor/add/", formToPostString());
+			setTimeout(function(){
+				dispatcher("actorList");
+			}, 500);
 			break;
 		
 		/*
@@ -85,6 +127,35 @@ function dispatcher(action, args) {
 			break;
 		case "categoryEditSumbit":
 			postRequest("category/edit/", formToPostString());
+			dispatcher("categoryDetails", args);
+			break;
+		case "personageEdit":
+			request("personage/"+args, Personage.getEditForm);
+			break;
+		case "personageEditSumbit":
+			postRequest("personage/edit/", formToPostString());
+			dispatcher("personageDetails", args);
+			break;
+		case "movieEdit":
+			request("movie/"+args, Movie.getEditForm);
+			break;
+		case "movieEditSumbit":
+			postRequest("movie/edit/", formToPostString());
+			dispatcher("movieDetails", args);
+			break;
+		case "directorEdit":
+			request("director/"+args, Director.getEditForm);
+			break;
+		case "directorEditSumbit":
+			postRequest("director/edit/", formToPostString());
+			dispatcher("directorDetails", args);
+			break;
+		case "actorEdit":
+			request("actor/"+args, Actor.getEditForm);
+			break;
+		case "actorEditSumbit":
+			postRequest("actor/edit/", formToPostString());
+			dispatcher("actorDetails", args);
 			break;
 
 		/*
@@ -96,6 +167,38 @@ function dispatcher(action, args) {
 		*/
 		case "categoryDelete":
 			request("category/delete/"+args);
+			setTimeout(function(){
+				dispatcher("categoryList");
+			}, 500);
+			
+			break;
+		case "personageDelete":
+			request("personage/delete/"+args);
+			setTimeout(function(){
+				dispatcher("personageList");
+			}, 500);
+			
+			break;
+		case "movieDelete":
+			request("movie/delete/"+args);
+			setTimeout(function(){
+				dispatcher("movieList");
+			}, 500);
+			
+			break;
+		case "directorDelete":
+			request("director/delete/"+args);
+			setTimeout(function(){
+				dispatcher("directorList");
+			}, 500);
+			
+			break;
+		case "actorDelete":
+			request("actor/delete/"+args);
+			setTimeout(function(){
+				dispatcher("actorList");
+			}, 500);
+			
 			break;
 
 

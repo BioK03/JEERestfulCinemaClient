@@ -42,8 +42,17 @@ a:hover {
     color: white;
 }
 
+.details {
+    text-decoration: underline;
+}
+
 .clickable {
     cursor: pointer;
+}
+
+.link {
+    cursor: pointer;
+    color: grey;
 }
 
 .navbar {
