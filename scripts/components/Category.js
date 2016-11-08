@@ -86,7 +86,8 @@ var Category = {
 				<label for="wording">Libellé</label><br/>
 				<input id="wording" type="text" name="wording" placeholder="Libellé" maxlength="20"/><br/>
 				<label for="picture">Image</label><br/>
-				<input id="picture" type="text" name="picture" placeholder="Image"/>
+				<input id="picture" class="inputPicture" type="text" name="picture" placeholder="Image" /><br/>
+				<img class="picturepreview" src=""><br/>
 				<button class="clickable" data-action="categoryAddSumbit">Valider</button>
 			</div>
 			`;
@@ -102,6 +103,9 @@ var Category = {
 				+'<button class="clickable" data-action="categoryEditSumbit" data-args="'+data[0].catCode+'">Valider</button>'
 				+'<label for="picture">Image</label><br/>'
 				+'<input id="picture" type="text" name="picture" value="'+data[0].picture+'" placeholder="Image"/>'
+				+'<label for="picture">Image</label><br/>'
+				+'<input id="picture" class="inputPicture" type="text" name="picture" value="'+data[0].picture+'" placeholder="Image" /><br/>'
+				+'<img class="picturepreview" src="'+data[0].picture+'"><br/>'
 				+'<button class="clickable" data-action="categoryEditSumbit">Valider</button>'
 				+'</div>';
 		printResults("#mainContent", result);

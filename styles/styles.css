@@ -46,6 +46,12 @@ a:hover {
     text-decoration: underline;
 }
 
+.picturepreview {
+    display: inline-block;
+    max-height: 13em;
+    max-width: 13em;
+}
+
 .clickable {
     cursor: pointer;
 }

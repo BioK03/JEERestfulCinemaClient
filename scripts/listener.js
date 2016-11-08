@@ -26,6 +26,12 @@ function declareEvents(){
 		}
 	});
 
+	$('.datepicker').datepicker({format: 'yyyy-mm-dd'});
+
+	$(".inputPicture").keyup(function() {
+  		 $(".picturepreview").attr("src", $(this).val());
+	});
+
 	$(".clickable[data-action], .hoverable[data-action]").unbind('click').click(function(){
 		dispatcher($(this).data("action"), $(this).data("args"));
 	});

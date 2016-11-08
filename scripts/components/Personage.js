@@ -73,12 +73,14 @@ var Personage = {
 	getEditForm: function(data) {
 		var result = '<h3>Edition d\'un personnage</h3>'
 			+'<div class="form">'
+				+'<input type="hidden" name="actor" value="'+data[0].actor.noAct+'"/>'
+				+'<input type="hidden" name="movie" value="'+data[0].movie.noMovie+'"/><br/>'
 				+'<label for="actor">Nom de l\'acteur</label><br/>'
-				+'<input type="text" name="actor" value="'+data[0].actor.firstnameAct+' '+data[0].actor.lastnameAct+'" disabled /><br/>'
+				+'<input id="actor" type="text" name="actorName" value="'+data[0].actor.firstnameAct+' '+data[0].actor.lastnameAct+'" disabled /><br/>'
 				+'<label for="movie">Nom du film</label><br/>'
-				+'<input type="text" name="movie" value="'+data[0].movie.title+'" disabled/><br/>'
+				+'<input id="movie" type="text" name="movieTitle" value="'+data[0].movie.title+'" disabled/><br/>'
 				+'<label for="persName">Nom du personnage</label><br/>'
-				+'<input type="text" name="persName" value="'+data[0].persName+'" placeholder="Nom du personnage"/><br/>'
+				+'<input id="persName" type="text" name="persName" value="'+data[0].persName+'" placeholder="Nom du personnage"/><br/>'
 				+'<button class="clickable" data-action="personageEditSumbit" data-args="'+data[0].movie.noMovie+'/'+data[0].actor.noAct+'">Valider</button>'
 			+'</div>';
 		printResults("#mainContent", result);
