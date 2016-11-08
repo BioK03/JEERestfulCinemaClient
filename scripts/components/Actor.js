@@ -31,6 +31,7 @@ var Actor = {
 	},
 	getDetails: function(data) {
 		var result = ''
+			+'<img src="'+data[0].picture+'"/><br/>'
 			+'Numéro acteur : '+data[0].noAct+'<br/>'
 			+'Prénom : '+data[0].firstnameAct+'<br/>'
 			+'Nom : '+data[0].lastnameAct+'<br/>'

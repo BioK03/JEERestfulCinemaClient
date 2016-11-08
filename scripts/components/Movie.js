@@ -41,12 +41,14 @@ var Movie = {
 	},
 	getDetails: function(data) {
 		var result = ''
+			+'<img src="'+data[0].picture+'"/><br/>'
 			+'Numéro du film : '+data[0].noMovie+'<br/>'
 			+'Nom : '+data[0].title+'<br/>'
 			+'Durée : '+data[0].duration+'<br/>'
 			+'Recettes : '+data[0].incomings+'<br/>'
 			+'Date de sortie : '+data[0].releaseDate+'<br/>'
 			+'Budget : '+data[0].budget+' €<br/>'
+			+'<a href="'+data[0].allocineLink+'" target="_blank">Lien Allocine</a><br/>'
 			+'<span class="clickable" data-action="directorDetails" data-args="'+data[0].director.noRea+'">Réalisateur : '+data[0].director.firstnameRea+' '+data[0].director.lastnameRea+'</span><br/>'
 			+'<span class="clickable" data-action="categoryDetails" data-args="'+data[0].category.catCode+'">Catégorie : '+data[0].category.wording+'('+data[0].category.catCode+')'+'</span><br/><br/>'
 			+'Acteurs :'

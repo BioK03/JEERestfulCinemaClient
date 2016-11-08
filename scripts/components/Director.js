@@ -31,6 +31,7 @@ var Director = {
 	},
 	getDetails: function(data) {
 		var result = ''
+			+'<img src="'+data[0].picture+'"/><br/>'
 			+'Numéro du réalisateur : '+data[0].noRea+'<br/>'
 			+'Prénom : '+data[0].firstnameRea+'<br/>'
 			+'Nom : '+data[0].lastnameRea+'<br/>'

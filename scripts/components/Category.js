@@ -28,8 +28,10 @@ var Category = {
 		printResults("#mainContent", result);
 	},
 	getDetails: function(data) {
-		var result = '<button class="clickable btn" data-action="categoryEdit" data-args="'+data[0].catCode+'"><i class="fa fa-edit"></i> Editer cette catégorie</button>'
+		var result = ''
+			+'<button class="clickable btn" data-action="categoryEdit" data-args="'+data[0].catCode+'"><i class="fa fa-edit"></i> Editer cette catégorie</button>'
 			+'<button class="clickable btn" data-action="categoryDelete" data-args="'+data[0].catCode+'"><i class="fa fa-remove"></i> Supprimer cette catégorie</button><br/>'
+			+'<img src="'+data[0].picture+'"/><br/>'
 			+'Code de catégorie : '+data[0].catCode+'<br/>'
 			+'Libellé : '+data[0].wording+'<br/>'
 			+'Films de cette catégorie : <br/>'
@@ -81,6 +83,7 @@ var Category = {
 			<div class="form">
 				<input type="text" name="catCode"/>
 				<input type="text" name="wording"/>
+				<input type="text" name="picture"/>
 				<button class="clickable" data-action="categoryAddSumbit">Valider</button>
 			</div>
 			`;
@@ -91,6 +94,7 @@ var Category = {
 			+'<div class="form">'
 				+'<input type="text" name="catCode" value="'+data[0].catCode+'"/>'
 				+'<input type="text" name="wording" value="'+data[0].wording+'"/>'
+				+'<input type="text" name="picture" value="'+data[0].picture+'"/>'
 				+'<button class="clickable" data-action="categoryEditSumbit">Valider</button>'
 			+'</div>';
 		printResults("#mainContent", result);
