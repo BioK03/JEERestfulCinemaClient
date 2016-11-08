@@ -37,9 +37,9 @@ var Actor = {
 			+'<span class="details">Prénom</span> : '+data[0].firstnameAct+'<br/>'
 			+'<span class="details">Nom</span> : '+data[0].lastnameAct+'<br/>'
 			+'<span class="details">Date de naissance</span> : '+data[0].birthdate+'<br/>'
-			+((data[0].deathdate)?'<span class="details">Date de décès</span> : '+data[0].deathdate:'', '<span class="details">Date de décès</span> : Acteur vivant')
-			+'<br/>'+(+(data[0].picture)?'<img src="'+data[0].picture+'"/>':'')
-			+'<br/> <span class="details">Films dans lequel a joué l\'acteur</span><br/>'
+			+((data[0].deathdate)?'<span class="details">Date de décès</span> : '+data[0].deathdate: '<span class="details">Date de décès</span> : Toujours vivant')
+			+'<br/>'+((data[0].picture)?'<img src="'+data[0].picture+'"/><br/> ':'')
+			+'<span class="details">Films dans lequel a joué l\'acteur</span><br/>'
 			+'<span id="movies"></span>';
 		printResults("#mainContent", result);
 		request("movie/actor/"+data[0].noAct, Actor.getDetailsMovie);

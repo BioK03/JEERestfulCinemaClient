@@ -37,6 +37,8 @@ var Director = {
 			+'<span class="details">Prénom</span> : '+data[0].firstnameRea+'<br/>'
 			+'<span class="details">Nom</span> : '+data[0].lastnameRea+'<br/>'
 			+'<span class="details">Films de ce réalisateur</span> : <br/>'
+			+'<br/>'+((data[0].picture)?'<img src="'+data[0].picture+'"/><br/>':'')
+			+'Films de ce réalisateur : <br/>'
 			+'<span id="movies"></span>';
 		printResults("#mainContent", result);
 		request("movie/director/"+data[0].noRea, Director.getDetailsMovie);

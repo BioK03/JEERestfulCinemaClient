@@ -51,8 +51,8 @@ var Movie = {
 			+'<span class="details">Budget</span> : '+data[0].budget+' €<br/>'
 			+'<span class="clickable link" data-action="directorDetails" data-args="'+data[0].director.noRea+'"><span class="details">Réalisateur</span> : '+data[0].director.firstnameRea+' '+data[0].director.lastnameRea+'</span><br/>'
 			+'<span class="clickable link" data-action="categoryDetails" data-args="'+data[0].category.catCode+'"><span class="details">Catégorie</span> : '+data[0].category.wording+'('+data[0].category.catCode+')'+'</span><br/><br/>'
-			+'<span class="details">Acteurs</span> :'
-			+'<span id="actors"></span>';
+			+'<br/>'+((data[0].picture)?'<img src="'+data[0].picture+'"/><br/>':'')
+			+'<span class="details">Acteurs</span> :';
 
 		printResults("#mainContent", result);
 		request("actor/movie/"+data[0].noMovie, Movie.getDetailsActor);
