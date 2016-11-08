@@ -1,6 +1,7 @@
 var Director = {
     getList: function(data) {
 		var result = `
+			<h3>Liste des réalisateurs</h3>
 			<button class="clickable btn" data-action="directorAdd"><i class="fa fa-plus"></i> Ajouter un réalisateur</button>
 			<table id="tab" class="table table-striped table-bordered datatable">
 				<thead>
@@ -31,7 +32,8 @@ var Director = {
 		printResults("#mainContent", result);
 	},
 	getDetails: function(data) {
-		var result = '<button class="clickable btn" data-action="directorEdit" data-args="'+data[0].noRea+'"><i class="fa fa-edit"></i> Editer ce réalisateur</button>'
+		var result = '<h3>Details du directeur</h3>'
+			+'<button class="clickable btn" data-action="directorEdit" data-args="'+data[0].noRea+'"><i class="fa fa-edit"></i> Editer ce réalisateur</button>'
 			+'<button class="clickable btn" data-action="directorDelete" data-args="'+data[0].noRea+'"><i class="fa fa-remove"></i> Supprimer ce réalisateur</button><br/>'
 			+'<span class="details">Numéro du réalisateur</span> : '+data[0].noRea+'<br/>'
 			+'<span class="details">Prénom</span> : '+data[0].firstnameRea+'<br/>'
@@ -92,7 +94,7 @@ var Director = {
 				<label for="picture">Image</label><br/>
 				<input id="picture" class="inputPicture" type="text" name="picture" placeholder="Image" /><br/>
 				<img class="picturepreview" src=""><br/>
-				<button class="clickable" data-action="directorAddSumbit">Valider</button>
+				<button class="clickable btn" data-action="directorAddSumbit"><i class="fa fa-check"></i>Valider</button>
 			</div>
 			`;
 		printResults("#mainContent", result);
@@ -108,7 +110,7 @@ var Director = {
 				+'<label for="picture">Image</label><br/>'
 				+'<input id="picture" class="inputPicture" type="text" name="picture" value="'+data[0].picture+'" placeholder="Image" /><br/>'
 				+'<img class="picturepreview" src="'+data[0].picture+'"><br/>'
-				+'<button class="clickable" data-action="directorEditSumbit" data-args="'+data[0].noRea+'">Valider</button>'
+				+'<button class="clickable btn" data-action="directorEditSumbit" data-args="'+data[0].noRea+'"><i class="fa fa-check"></i>Valider</button>'
 			+'</div>';
 		printResults("#mainContent", result);
 	},

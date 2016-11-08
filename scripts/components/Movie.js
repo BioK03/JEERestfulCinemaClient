@@ -1,6 +1,7 @@
 var Movie = {
     getList: function(data) {
 		var result = `
+			<h3>Liste des films</h3>
 			<button class="clickable btn" data-action="movieAdd"><i class="fa fa-plus"></i> Ajouter un film</button>
 			<table id="tab" class="table table-striped table-bordered datatable">
 				<thead>
@@ -41,7 +42,8 @@ var Movie = {
 		
 	},
 	getDetails: function(data) {
-		var result = '<button class="clickable btn" data-action="movieEdit" data-args="'+data[0].noMovie+'"><i class="fa fa-edit"></i> Editer ce film</button>'
+		var result = '<h3>Details du film</h3>'
+			+'<button class="clickable btn" data-action="movieEdit" data-args="'+data[0].noMovie+'"><i class="fa fa-edit"></i> Editer ce film</button>'
 			+'<button class="clickable btn" data-action="movieDelete" data-args="'+data[0].noMovie+'"><i class="fa fa-remove"></i> Supprimer ce film</button><br/>'
 			+'<span class="details">Numéro du film</span> : '+data[0].noMovie+'<br/>'
 			+'<span class="details">Nom</span> : '+data[0].title+'<br/>'
@@ -111,7 +113,7 @@ var Movie = {
 				<img class="picturepreview" src=""><br/>
 				<label for="allocineLink">Lien AlloCiné</label><br/>
 				<input id="allocineLink" type="text" name="allocineLink" placeholder="Lien AlloCiné" /><br/>
-				<button class="clickable" data-action="movieAddSumbit">Valider</button>
+				<button class="clickable btn" data-action="movieAddSumbit"><i class="fa fa-check"></i>Valider</button>
 			</div>
 			`;
 		printResults("#mainContent", result);
@@ -148,17 +150,16 @@ var Movie = {
 				+'<input id="incomings" type="number" name="incomings" value="'+data[0].incomings+'" min="0" step="10000" required placeholder="Recettes (en euro)" /><br/>'
 				+'<label for="releaseDate">Date de sortie (AAAA-MM-JJ)</label><br/>'
 				+'<input id="releaseDate" class="datepicker" type="text" name="releaseDate" value="'+data[0].releaseDate+'" required placeholder="Date de sortie (AAAA-MM-JJ)" /><br/>'
-				+'<label for="picture">Image</label><br/>'
-				+'<input id="picture" class="inputPicture" type="text" name="picture" value="'+data[0].picture+'" placeholder="Image" /><br/>'
 				+'<label for="category">Categorie</label><br/>'
 				+'<select id="category" name="category" data-id="'+data[0].category.catCode+'"> </select><br/>'
 				+'<label for="director">Réalisateur</label><br/>'
 				+'<select id="director" name="director" data-id="'+data[0].director.noRea+'"> </select><br/>'
-				+'<label for="picture">Image</label><br/>'
-				+'<img class="picturepreview" src="'+data[0].picture+'"><br/>'
 				+'<label for="allocineLink">Lien AlloCiné</label><br/>'
 				+'<input id="allocineLink" type="text" name="allocineLink" value="'+data[0].allocineLink+'" placeholder="Lien AlloCiné" /><br/>'
-				+'<button class="clickable" data-action="movieEditSumbit" data-args="'+data[0].noMovie+'">Valider</button>'
+				+'<label for="picture">Image</label><br/>'
+				+'<input id="picture" class="inputPicture" type="text" name="picture" value="'+data[0].picture+'" placeholder="Image" /><br/>'
+				+'<img class="picturepreview" src="'+data[0].picture+'"><br/>'
+				+'<button class="clickable btn" data-action="movieEditSumbit" data-args="'+data[0].noMovie+'"><i class="fa fa-check"></i>Valider</button>'
 			+'</div>';
 		printResults("#mainContent", result);
 		request("director/list/", Movie.getFormDirector);

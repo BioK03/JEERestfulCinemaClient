@@ -1,7 +1,7 @@
 var Actor = {
 	getList: function(data) {
-		var result = `
-			<button class="clickable btn" data-action="actorAdd"><i class="fa fa-plus"></i> Ajouter un acteur</button>
+		var result = ` <h3>Liste des acteurs</h3>
+			<button class="clickable btn" data-action="actorAdd"><i class="fa fa-plus"></i> Ajouter un acteur</button></br>
 			<table id="tab" class="table table-striped table-bordered datatable">
 				<thead>
 					<tr>
@@ -31,7 +31,8 @@ var Actor = {
 		printResults("#mainContent", result);
 	},
 	getDetails: function(data) {
-		var result = '<button class="clickable btn" data-action="actorEdit" data-args="'+data[0].noAct+'"><i class="fa fa-edit"></i> Editer cet acteur</button>'
+		var result = '<h3>Details de l\'acteur</h3>'
+			+'<button class="clickable btn" data-action="actorEdit" data-args="'+data[0].noAct+'"><i class="fa fa-edit"></i> Editer cet acteur</button>'
 			+'<button class="clickable btn" data-action="actorDelete" data-args="'+data[0].noAct+'"><i class="fa fa-remove"></i> Supprimer cet acteur</button><br/>'
 			+'<span class="details">Numéro acteur</span> : '+data[0].noAct+'<br/>'
 			+'<span class="details">Prénom</span> : '+data[0].firstnameAct+'<br/>'
@@ -97,7 +98,7 @@ var Actor = {
 				<label for="picture">Image</label><br/>
 				<input id="picture" class="inputPicture" type="text" name="picture" placeholder="Image" /><br/>
 				<img class="picturepreview" src=""><br/>
-				<button class="clickable" data-action="actorAddSumbit">Valider</button>
+				<button class="clickable btn" data-action="actorAddSumbit"><i class="fa fa-check"></i>Valider</button>
 			</div>
 			`;
 		printResults("#mainContent", result);
@@ -117,7 +118,7 @@ var Actor = {
 				+'<label for="picture">Image</label><br/>'
 				+'<input id="picture" class="inputPicture" type="text" name="picture" value="'+data[0].picture+'" placeholder="Image" /><br/>'
 				+'<img class="picturepreview" src="'+data[0].picture+'"><br/>'
-				+'<button class="clickable" data-action="actorEditSumbit" data-args="'+data[0].noAct+'">Valider</button>'
+				+'<button class="clickable btn" data-action="actorEditSumbit" data-args="'+data[0].noAct+'"><i class="fa fa-check"></i>Valider</button>'
 			+'</div>';
 		printResults("#mainContent", result);
 	},

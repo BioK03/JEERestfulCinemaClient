@@ -1,6 +1,8 @@
 function declareEvents(){
 	console.info("Events refreshed");
-	$('[data-toggle="popover"]').popover();
+	$('[data-toggle="popover"]').popover({
+		container: 'body'
+	});
 	$('.datatable').DataTable({
 		"language": {
 			"sProcessing":     "Traitement en cours...",
